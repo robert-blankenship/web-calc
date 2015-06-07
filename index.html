@@ -4,11 +4,45 @@
 <head>
 	<script src='node_modules/angular/angular.js'></script>
 	<script src='dist/dist.js'></script>
+	
+	<link href='dist/style.css' rel='stylesheet' type='text/css'/>
 </head>
 
 <body ng-controller="CalcCtrl">
-	{{thing}}
 
+	<!-- to do:
 
+	operations - +, -, /, *, %
+	input: +/-, 0-9, .
+
+	control: C, =
+
+	 -->
+
+	<div class='inputs'>
+
+	<div class='miscellaneousCtrls'>
+		<div ng-repeat='ctrl in miscellaneousCtrls'>
+		</div>
+	</div>
+
+	<div class='numericInputs'>
+		<div ng-repeat='num in numericInputs'>
+			{{num.symbol}}
+		</div>
+		
+		<div>0</div>
+		<div>.</div>
+	</div>
+	
+	<div class='basicOperations'>
+		<div ng-repeat='operation in basicOperations'>
+
+		</div>
+		
+		<div>=</div>
+	</div>
+
+	</div>
 </body>
 </html>
