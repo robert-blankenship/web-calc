@@ -1,10 +1,27 @@
-class Control
-	constructor: (@symbol) ->
-
 app = angular.module 'App', []
 
 app.controller 'CalcCtrl', ($scope) ->
 
-	$scope.miscellaneousCtrls = ['C','+/-','%'].map (symbol) -> new Control symbol
-	$scope.numericInputs = [9..1].map (symbol) -> new Control symbol
-	$scope.basicOperations = ['/', '*', '-', '+', '='].map (symbol) -> new Control symbol
+
+	$scope.inputBuffer =
+		str: ''
+		
+		append: (char) ->
+			if char is '.' and @str.indexOf '.' is -1
+				@str += '.'
+			else
+				@str += char
+
+		clear: ->
+			@str = ''
+			@sign = ''
+
+		invertSign: ->
+			@sign = if @sign is '-'	then '' else '-'
+
+		sign: '' #empty string is positive, '-' is negative
+		str: ''
+
+
+	$scope.numericInputsHelper = [9..1]
+	$scope.basicOperationsHelper = ['/', '*', '-', '+', '=']

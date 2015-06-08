@@ -9,40 +9,55 @@
 </head>
 
 <body ng-controller="CalcCtrl">
-
 	<!-- to do:
-
 	operations - +, -, /, *, %
 	input: +/-, 0-9, .
-
 	control: C, =
-
 	 -->
+<div class='calculatorContainer'>
+
+	<div class='inputBuffer'> 
+		<span>{{inputBuffer.sign}}</span> {{inputBuffer.str}} 
+	</div>
 
 	<div class='inputs'>
 
-	<div class='miscellaneousCtrls'>
-		<div class='button' ng-repeat='ctrl in miscellaneousCtrls'>
-			{{ctrl.symbol}}	
-		</div>
-	</div>
+		<div class='miscellaneousCtrls'>
+			<div class='button' ng-click='inputBuffer.clear()'>
+				C	
+			</div>
 
-	<div class='numericInputs'>
-		<div class='button' ng-repeat='ctrl in numericInputs'>
-			{{ctrl.symbol}}
+			<div class='button' ng-click='inputBuffer.invertSign()'>
+				+/-	
+			</div>
+
+			<div class='button'>
+				%
+			</div>
 		</div>
+
+		<div class='numericInputs'>
+			<div class='button' ng-click="inputBuffer.append(num)" ng-repeat='num in numericInputsHelper'>
+				{{num}}
+			</div>
 		
-		<div class='button0'>0</div>	
+			<div class='button0' ng-click="inputBuffr.append('0')">
+				0
+			</div>	
 	
-		<div class='button'>.</div>
-	</div>
+			<div class='button' ng-click="inputBuffer.append('.')">
+				.
+			</div>
+		</div>
 	
-	<div class='basicOperations'>
-		<div class='button' ng-repeat='ctrl in basicOperations'>
-			{{ctrl.symbol}}
+		<div class='basicOperations'>
+			<div class='button' ng-repeat='symbol in basicOperationsHelper'>
+				{{symbol}}
+			</div>
 		</div>
 	</div>
 
-	</div>
+</div>
+
 </body>
 </html>
