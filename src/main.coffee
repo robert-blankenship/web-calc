@@ -2,7 +2,6 @@ app = angular.module 'App', []
 
 app.controller 'CalcCtrl', ($scope) ->
 
-
 	$scope.inputBuffer =
 		str: ''
 		
@@ -19,9 +18,12 @@ app.controller 'CalcCtrl', ($scope) ->
 		invertSign: ->
 			@sign = if @sign is '-'	then '' else '-'
 
-		sign: '' #empty string is positive, '-' is negative
+		evaluate: ->
+			@str = '' + eval @str.replace /x/g, '*'
+
+		sign: '' # '' is positive, '-' is negative
 		str: ''
 
 
 	$scope.numericInputsHelper = [9..1]
-	$scope.basicOperationsHelper = ['/', '*', '-', '+', '=']
+	$scope.basicOperationsHelper = ['/', 'x', '-', '+']

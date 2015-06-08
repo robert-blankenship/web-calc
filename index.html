@@ -24,11 +24,11 @@
 
 		<div class='miscellaneousCtrls'>
 			<div class='button' ng-click='inputBuffer.clear()'>
-				C	
+				C
 			</div>
 
 			<div class='button' ng-click='inputBuffer.invertSign()'>
-				+/-	
+				+/-
 			</div>
 
 			<div class='button'>
@@ -51,13 +51,11 @@
 		</div>
 	
 		<div class='basicOperations'>
-			<div class='button' ng-repeat='symbol in basicOperationsHelper'>
-				{{symbol}}
+			<div class='button' ng-repeat='op in basicOperationsHelper' ng-click='inputBuffer.append(op)'>
+				{{op}}
 			</div>
+			<div class='button' ng-click='inputBuffer.evaluate()'>=</div>
 		</div>
 	</div>
 
 </div>
-
-</body>
-</html>
