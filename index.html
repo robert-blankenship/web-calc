@@ -17,7 +17,7 @@
 <div class='calculatorContainer'>
 
 	<div class='inputBuffer'> 
-		<span>{{inputBuffer.sign}}</span> {{inputBuffer.str}} 
+		<span>{{inputBuffer.sign}}</span> {{inputBuffer.getDisplayBuffer()}} 
 	</div>
 
 	<div class='inputs'>
@@ -37,11 +37,11 @@
 		</div>
 
 		<div class='numericInputs'>
-			<div class='button' ng-click="inputBuffer.append(num)" ng-repeat='num in numericInputsHelper'>
+			<div class='button' ng-click="inputBuffer.append(num)" ng-repeat='num in [1,2,3,4,5,6,7,8,9]'>
 				{{num}}
 			</div>
 		
-			<div class='button0' ng-click="inputBuffr.append('0')">
+			<div class='button-wide' ng-click="inputBuffer.append('0')">
 				0
 			</div>	
 	
@@ -51,7 +51,13 @@
 		</div>
 	
 		<div class='basicOperations'>
-			<div class='button' ng-repeat='op in basicOperationsHelper' ng-click='inputBuffer.append(op)'>
+			<div
+				class='button'
+				ng-repeat="op in ['+', '-', '/', '*']"
+				ng-click='inputBuffer.setOperator(op)'
+				ng-class="{
+					active: 'inputBuffer.operator === op'
+				}">
 				{{op}}
 			</div>
 			<div class='button' ng-click='inputBuffer.evaluate()'>=</div>
