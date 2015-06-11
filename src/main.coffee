@@ -1,7 +1,6 @@
 app = angular.module 'App', []
 
 app.controller 'CalcCtrl', ($scope) ->
-
 	$scope.inputBuffer =
 		operand1: ''
 		operand2: ''
@@ -9,10 +8,18 @@ app.controller 'CalcCtrl', ($scope) ->
 		operator: ''
 
 		getDisplayBuffer: ->
-			if not @operand2 then @operand1 else @operand2
+			currentOperand = if not @operand2 then @operand1 else @operand2
+
+			if currentOperand.length > 9
+				parseFloat(currentOperand).toExponential(7)
+			else
+				currentOperand
 
 		setOperator: (operator) ->
-			if @operand1 and @operand1 isnt '.'
+			if @operator is operator
+				@operator = ''
+
+			else if @operand1 and @operand1 not in ['.', '-.']
 				@operator = operator
 		
 		append: (char) ->
@@ -36,10 +43,19 @@ app.controller 'CalcCtrl', ($scope) ->
 			@sign = ''
 
 		invertSign: ->
-			@sign = if @sign is '-'	then '' else '-'
+			if @operand2
+				if @operand2[0] is '-'
+					@operand2 = @operand2.slice(1)
+				else
+					@operand2 = '-' + @operand2
+			else
+				if @operand1[0] is '-'
+					@operand1 = @operand1.slice(1)
+				else
+					@operand1 = '-' + @operand1
 
 		evaluate: ->
-			return if not @operand2 or @operand2 is '.'
+			return if not @operand2 or @operand2 in ['.', '-.']
 
 			op1 = parseFloat @operand1
 			op2 = parseFloat @operand2
@@ -53,4 +69,3 @@ app.controller 'CalcCtrl', ($scope) ->
 			@operand1 = result.toString()
 			@operand2 = ''
 			@operator = '=' #This is mainly to handle an exception in @append.
-

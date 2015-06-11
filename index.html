@@ -8,58 +8,42 @@
 	<link href='dist/style.css' rel='stylesheet' type='text/css'/>
 </head>
 
-<body ng-controller="CalcCtrl">
-	<!-- to do:
-	operations - +, -, /, *, %
-	input: +/-, 0-9, .
-	control: C, =
-	 -->
-<div class='calculatorContainer'>
+<body>
 
-	<div class='inputBuffer'> 
-		{{inputBuffer.getDisplayBuffer()}} 
+<div class='calculatorContainer' ng-controller="CalcCtrl">
+	<div class='displayContainer'>
+		<div class='displayBuffer'>{{inputBuffer.getDisplayBuffer()}} </div>
 	</div>
 
 	<div class='inputs'>
-
 		<div class='miscellaneousCtrls'>
-			<div class='button' ng-click='inputBuffer.clear()'>
-				C
-			</div>
-
-			<div class='button' ng-click='inputBuffer.invertSign()'>
-				+/-
-			</div>
-
-			<div class='button'>
-				%
-			</div>
+			<div class='button' ng-click='inputBuffer.clear()'> C </div>
+			<div class='button' ng-click='inputBuffer.invertSign()'> +/- </div>
+			<div class='button' ng-click='inputBuffer.setOperator("%")'> % </div>
 		</div>
 
 		<div class='numericInputs'>
-			<div class='button' ng-click="inputBuffer.append(num)" ng-repeat='num in [1,2,3,4,5,6,7,8,9]'>
+			<div class='button'
+				ng-click="inputBuffer.append(num.toString())"
+				ng-repeat='num in [1,2,3,4,5,6,7,8,9]'>
 				{{num}}
 			</div>
 		
-			<div class='button-wide' ng-click="inputBuffer.append('0')">
-				0
-			</div>	
-	
-			<div class='button' ng-click="inputBuffer.append('.')">
-				.
-			</div>
+			<div class='button-wide' ng-click="inputBuffer.append('0')"> 0 </div>
+			<div class='button' ng-click="inputBuffer.append('.')"> . </div>
 		</div>
 	
 		<div class='basicOperations'>
-			<div
-				class='button'
+			<div class='button'
 				ng-repeat="operator in ['+', '-', '/', '*']"
 				ng-click='inputBuffer.setOperator(operator)'
 				ng-class="{ active: inputBuffer.operator === operator}">
 				{{operator}}
 			</div>
-			<div class='button' ng-click='inputBuffer.evaluate()'>=</div>
+			<div class='button' ng-click='inputBuffer.evaluate()'> = </div>
 		</div>
 	</div>
-
 </div>
+
+</body>
+</html>
