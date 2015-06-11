@@ -23,6 +23,7 @@ App.controller 'CalcCtrl', ($scope) ->
 				@operator = operator
 		
 		append: (char) ->
+
 			if @operator is '='
 				@operand1 = char
 				@operator = ''
@@ -30,7 +31,7 @@ App.controller 'CalcCtrl', ($scope) ->
 			else if @operator and not @operand2
 				@operand2 = char
 
-			else if not (char is '.' and @getDisplayBuffer().indexOf '.' >= 0)
+			else if not (char is '.' and @getDisplayBuffer().indexOf('.') >= 0)
 				if @operand2
 					@operand2 += char
 				else
