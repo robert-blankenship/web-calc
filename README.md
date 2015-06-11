@@ -1,11 +1,23 @@
 # A simple web-based calculator.
 
 
-# Contributing:
+## How to deploy the calculator.
 Setup:
-1. Install Gulp if you don't have it 
-	npm install -g gulp
 
-2. Install node modules.
-	npm install .
+1. Install node modules.
+```sh
+npm install
+```
 
+2.  Run gulp.
+```sh
+node_modules/gulp/bin/gulp.js
+```
+
+3. Open the file in your browser.
+```sh
+# for Ubuntu.
+see index.html 
+
+# for OSX.
+open index.html
