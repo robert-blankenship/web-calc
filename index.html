@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="App">
+<html>
 
 <head>
 	<script src='node_modules/angular/angular.js'></script>
@@ -9,41 +9,53 @@
 </head>
 
 <body>
-
-<div class='calculatorContainer' ng-controller="CalcCtrl">
-	<div class='displayContainer'>
-		<div class='displayBuffer'>{{inputBuffer.getDisplayBuffer()}} </div>
+<div class='web-calc-container' ng-controller="CalcCtrl" ng-app="WebCalc">
+	<div class='web-calc-display-container'>
+		<div class='web-calc-display-buffer'>{{inputBuffer.getDisplayBuffer()}} </div>
 	</div>
 
-	<div class='inputs'>
-		<div class='miscellaneousCtrls'>
-			<div class='button' ng-click='inputBuffer.clear()'> C </div>
-			<div class='button' ng-click='inputBuffer.invertSign()'> +/- </div>
-			<div class='button' ng-click='inputBuffer.setOperator("%")'> % </div>
+	<div class='web-calc-inputs'>
+
+		<div class='web-calc-misc'>
+			<div class='web-calc-button' ng-click='inputBuffer.setOperator("%")'> % </div>
+			<div class='web-calc-button' ng-click='inputBuffer.invertSign()'> +/- </div>
+			<div class='web-calc-button' ng-click='inputBuffer.clear()'> C </div>
 		</div>
 
-		<div class='numericInputs'>
-			<div class='button'
+		<div class='web-calc-numeric'>
+			<div class='web-calc-button'
 				ng-click="inputBuffer.append(num.toString())"
 				ng-repeat='num in [1,2,3,4,5,6,7,8,9]'>
 				{{num}}
 			</div>
-		
-			<div class='button-wide' ng-click="inputBuffer.append('0')"> 0 </div>
-			<div class='button' ng-click="inputBuffer.append('.')"> . </div>
+			<div class='web-calc-button-wide' ng-click="inputBuffer.append('0')"> 0 </div>
+			<div class='web-calc-button' ng-click="inputBuffer.append('.')"> . </div>
 		</div>
 	
-		<div class='basicOperations'>
-			<div class='button'
-				ng-repeat="operator in ['+', '-', '/', '*']"
-				ng-click='inputBuffer.setOperator(operator)'
-				ng-class="{ active: inputBuffer.operator === operator}">
-				{{operator}}
+		<div class='web-calc-basic-operations'>
+			<div class='web-calc-button'
+				ng-click='inputBuffer.setOperator("/")'
+				ng-class="{ active: inputBuffer.operator === '/'}">
+				&divide;
 			</div>
-			<div class='button' ng-click='inputBuffer.evaluate()'> = </div>
+			<div class='web-calc-button'
+				ng-click='inputBuffer.setOperator("*")'
+				ng-class="{ active: inputBuffer.operator === '*'}">
+				&times;
+			</div>
+			<div class='web-calc-button'
+				ng-click='inputBuffer.setOperator("-")'
+				ng-class="{ active: inputBuffer.operator === '-'}">
+				-
+			</div>
+			<div class='web-calc-button'
+				ng-click='inputBuffer.setOperator("+")'
+				ng-class="{ active: inputBuffer.operator === '+'}">
+				+
+			</div>
+			<div class='web-calc-button' ng-click='inputBuffer.evaluate()'> = </div>
 		</div>
 	</div>
 </div>
-
 </body>
 </html>

@@ -1,52 +1,58 @@
-.calculatorContainer
-	font-family: HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif
+// I envision this app being a plug-and-play
+// extension to an external website. (i.e., add this script tag
+// to get a calculator). Thus I made the decision to prefix
+// all of the class names.
+
+@font-face
+	font-family: HelveticaNeue-UltraLight
+	src: url(fonts/helvetic-neue-ultra-light/HelveticaNeue-UltraLight)
+
+.web-calc-container
+	font-family: HelveticaNeue-UltraLight
 	font-weight: 300
-	font-size: 30px
+	font-size: 35px
 
 	width: 400px
 	div 
 		box-sizing:border-box
 
-
-.displayContainer
+.web-calc-display-container
 	width: 400px
 	height: 100px
 	position: relative
 	background: black
 
-	.displayBuffer
+	.web-calc-display-buffer
 		color: white
 		font-size: 60px
 		text-align: right
+		padding-right: 10px
 		position: absolute
 		bottom: 0
 		right: 0
 
-.inputs
+.web-calc-inputs
 	position: relative
-
 	width : 400px
 	height: 500px
-
 	background-color: lightgray
-
 	*
 		-webkit-user-select: none
 
-	.numericInputs
+	.web-calc-numeric
 		left: 0
 		bottom: 0
 		width: 75%
 		height: 80%
 
-	.miscellaneousCtrls
+	.web-calc-misc
 		top: 0
 		left: 0
 		height: 20%
 		width: 75%
 		background-color: darkgray
 
-	.basicOperations
+	.web-calc-basic-operations
 		color: white
 		position: absolute
 		top: 0
@@ -55,22 +61,22 @@
 		height: 100%
 		background-color: orange
 
-	.button, .button-wide
+	.web-calc-button, .web-calc-button-wide
 		border: 1px
 		border-color: black
 		border-style: solid
 		height: 100px
 		line-height: 100px
-		
-	.active, .button:active, .button-wide:active
-		box-shadow: 0 0 12px black inset
 
-	.button
+	.web-calc-button
 		text-align: center
 		width: 100px
 		float: right
 
-	.button-wide
+	.web-calc-button-wide
 		padding-left: 38px
 		width: 200px
 		float: left
+
+	.active, .web-calc-button:active, .web-calc-button-wide:active
+		box-shadow: 0 0 12px black inset
