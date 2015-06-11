@@ -17,7 +17,7 @@
 <div class='calculatorContainer'>
 
 	<div class='inputBuffer'> 
-		<span>{{inputBuffer.sign}}</span> {{inputBuffer.getDisplayBuffer()}} 
+		{{inputBuffer.getDisplayBuffer()}} 
 	</div>
 
 	<div class='inputs'>
@@ -53,10 +53,10 @@
 		<div class='basicOperations'>
 			<div
 				class='button'
-				ng-repeat="op in ['+', '-', '/', '*']"
-				ng-click='inputBuffer.setOperator(op)'
-				ng-class="{ active: inputBuffer.operator === op}">
-				{{op}}
+				ng-repeat="operator in ['+', '-', '/', '*']"
+				ng-click='inputBuffer.setOperator(operator)'
+				ng-class="{ active: inputBuffer.operator === operator}">
+				{{operator}}
 			</div>
 			<div class='button' ng-click='inputBuffer.evaluate()'>=</div>
 		</div>
