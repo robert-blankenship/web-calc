@@ -11,7 +11,7 @@ app.controller 'CalcCtrl', ($scope) ->
 			currentOperand = if not @operand2 then @operand1 else @operand2
 
 			if currentOperand.length > 9
-				parseFloat(currentOperand).toExponential(7)
+				parseFloat(currentOperand).toExponential(6)
 			else
 				currentOperand
 
