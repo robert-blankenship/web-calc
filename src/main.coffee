@@ -1,4 +1,4 @@
-angular.module('WebCalc', []).controller 'CalcCtrl', ($scope) ->
+angular.module('WebCalc', ['ngTouch']).controller 'CalcCtrl', ($scope) ->
 
 	$scope.inputBuffer =
 		operand1: ''
