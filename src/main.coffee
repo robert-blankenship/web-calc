@@ -1,6 +1,5 @@
-App = angular.module('WebCalc', [])
+angular.module('WebCalc', []).controller 'CalcCtrl', ($scope) ->
 
-App.controller 'CalcCtrl', ($scope) ->
 	$scope.inputBuffer =
 		operand1: ''
 		operand2: ''
