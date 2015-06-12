@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<script src='node_modules/angular/angular.min.js'></script>
 	<script src='node_modules/angular-touch/angular-touch.min.js'></script>
@@ -12,6 +11,9 @@
 </head>
 
 <body>
+<!-- Since I envision this being a plug-and-play extension, I'm making the 
+entire app encapsulated in a single div, declaring ng-app on this div and not <html>,
+namespacing the class names, etc. -->
 <div class='web-calc-container' ng-controller="CalcCtrl" ng-app="WebCalc">
 	<div class='web-calc-display-container'>
 		<div class='web-calc-display-buffer'>{{inputBuffer.getDisplayBuffer()}} </div>
@@ -27,7 +29,8 @@
 		<div class='web-calc-numeric'>
 			<div class='web-calc-button'
 				ng-click="inputBuffer.append(num.toString())"
-				ng-repeat='num in [1,2,3,4,5,6,7,8,9]'>
+				ng-repeat='num in [3,2,1,6,5,4,9,8,7]'>
+				<!-- I'm iterating in this fashion to display the elements in the right order. -->
 				{{num}}
 			</div>
 			<div class='web-calc-button-wide' ng-click="inputBuffer.append('0')"> 0 </div>

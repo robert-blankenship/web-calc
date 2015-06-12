@@ -1,3 +1,4 @@
+# ngTouch really improves the feeling of an app on mobile.
 angular.module('WebCalc', ['ngTouch']).controller 'CalcCtrl', ($scope) ->
 
 	$scope.inputBuffer =
