@@ -37,22 +37,22 @@
 		<div class='web-calc-basic-operations'>
 			<div class='web-calc-button'
 				ng-click='inputBuffer.setOperator("/")'
-				ng-class="{ active: inputBuffer.operator === '/'}">
+				ng-class="{ 'web-calc-operator-active': inputBuffer.operator === '/'}">
 				&divide;
 			</div>
 			<div class='web-calc-button'
 				ng-click='inputBuffer.setOperator("*")'
-				ng-class="{ active: inputBuffer.operator === '*'}">
+				ng-class="{ 'web-calc-operator-active': inputBuffer.operator === '*'}">
 				&times;
 			</div>
 			<div class='web-calc-button'
 				ng-click='inputBuffer.setOperator("-")'
-				ng-class="{ active: inputBuffer.operator === '-'}">
+				ng-class="{ 'web-calc-operator-active': inputBuffer.operator === '-'}">
 				-
 			</div>
 			<div class='web-calc-button'
 				ng-click='inputBuffer.setOperator("+")'
-				ng-class="{ active: inputBuffer.operator === '+'}">
+				ng-class="{ 'web-calc-operator-active': inputBuffer.operator === '+'}">
 				+
 			</div>
 			<div class='web-calc-button' ng-click='inputBuffer.evaluate()'> = </div>
