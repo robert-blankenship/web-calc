@@ -1,5 +1,5 @@
 # A simple web-based calculator.
-
+Wrote this a while ago as practice for mobile-first web app design.
 
 ## How to deploy the calculator.
 1. Install node modules.
